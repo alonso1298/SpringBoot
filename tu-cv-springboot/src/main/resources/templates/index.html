@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
   <h1>Nuestro CV</h1>
+<!--  "name" es la variable definida en controller-->
+<p th:text="'Hola, ' + ${name} + ' ! ' " >Texto por defecto</p>
 </body>
 </html>
