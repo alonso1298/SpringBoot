@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller // Permite mapear rutas web
 public class CvController {
 
-    @GetMapping("/home")
-    public String index(){
-        return "index";
+//    @GetMapping("/home")
+//    public String index(){
+//        return "index";
+//    }
+
+    // Indicamos 3 rutas con un get mapping
+    @GetMapping({"/pep", "", "/home"})
+    public String pep(){
+        return "pep";
     }
 }
