@@ -8,6 +8,8 @@
   <h1>Nuestro CV</h1>
 <!--  "name" es la variable definida en controller-->
 <p th:text="'Hola, ' + ${name} + ' ! ' " >Texto por defecto</p>
-<p th:text="'${persona.firstName}" >Texto por defecto</p>
+<p th:text="${persona.primerNombre}" >Texto por defecto</p>
+<p th:text="${persona.segundoNombre}" >Texto por defecto</p>
+<p th:text="${persona.profesion}" >Texto por defecto</p>
 </body>
 </html>
