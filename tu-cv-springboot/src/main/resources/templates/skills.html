@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Habilidades</title>
+</head>
+<body>
+    <h1>Habilidades</h1>
+    <ul>
+      <li th:each="habilidad : ${skills}" th:text="${habilidad}">Skill</li>
+    </ul>
+</body>
+</html>
