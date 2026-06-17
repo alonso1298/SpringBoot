@@ -15,7 +15,7 @@ public class CvController {
     // de controlador a una vista
     public String index(Model model){
         Person persona = new Person("Gabriel", "Sagrero", "Dev");
-        model.addAttribute("name", "Gabriel"); // Es un mapa que maneja una key
+        model.addAttribute("name", "Ga"); // Es un mapa que maneja una key
         model.addAttribute("persona", persona); // Es un mapa que maneja una key
         return "index";
     }
