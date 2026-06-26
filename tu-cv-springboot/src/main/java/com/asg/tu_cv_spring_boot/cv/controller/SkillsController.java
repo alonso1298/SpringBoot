@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -11,7 +12,8 @@ public class SkillsController {
     @GetMapping("/skills")
     public String habilidades(Model model){
         List<String> habilidades = List.of("Java", "Spring", "Angular", "HTML", "JS");
-        model.addAttribute("skills", habilidades);
+        List<String> list = new ArrayList<>();
+        model.addAttribute("skills", list);
         return "skills";
     }
 }

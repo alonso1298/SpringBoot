@@ -6,7 +6,8 @@
 </head>
 <body>
     <h1>Habilidades</h1>
-    <ul>
+    <p th:if="${skills.isEmpty()}" >No se tienen datos</p>
+    <ul th:if="${!skills.isEmpty()}" >
       <li th:each="habilidad : ${skills}" th:text="${habilidad}">Skill</li>
     </ul>
 </body>
