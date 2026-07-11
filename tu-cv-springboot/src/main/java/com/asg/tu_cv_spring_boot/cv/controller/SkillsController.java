@@ -17,21 +17,21 @@ public class SkillsController {
 
     private final List<Skill> skills = new ArrayList<>();
 
-    @GetMapping
-    public String habilidades(Model model){
-        List<String> habilidades = List.of("Java", "Spring", "Angular", "HTML", "JS");
-        List<String> list = new ArrayList<>();
-        model.addAttribute("skills", list);
-        return "skills";
-    }
+//    @GetMapping
+//    public String habilidades(Model model){
+//        List<String> habilidades = List.of("Java", "Spring", "Angular", "HTML", "JS");
+//        List<String> list = new ArrayList<>();
+//        model.addAttribute("skills", list);
+//        return "skills";
+//    }
     @GetMapping
     public  String showSkills(Model model){
         model.addAttribute("skills", skills);
-        return "add-skills";
+        return "skills";
     }
     @GetMapping("/new")
     public  String showForm(Model model){
-        model.addAttribute("skills", new Skill());
+        model.addAttribute("skill", new Skill());
         return "add-skills";
     }
     @PostMapping("/add")
