@@ -24,19 +24,34 @@ public class SkillsController {
 //        model.addAttribute("skills", list);
 //        return "skills";
 //    }
+
+//    @GetMapping
+//    public  String showSkills(Model model){
+//        model.addAttribute("skills", skills);
+//        return "skills";
+//    }
+
     @GetMapping
-    public  String showSkills(Model model){
-        model.addAttribute("skills", skills);
+    public  String showSkills(){
         return "skills";
     }
+
+    @ModelAttribute(name = "skills2")
+    public List<Skill> getSkill(){
+        return skills;
+    }
+
     @GetMapping("/new")
     public  String showForm(Model model){
         model.addAttribute("skill", new Skill());
         return "add-skills";
     }
+
     @PostMapping("/add")
+    // ModelAtribute sirve para vincular los datos de un formulario HTML con un objeto Java
     public  String addSkill( @ModelAttribute Skill skill){
         skills.add(skill);
         return "redirect:/skills";
     }
+
 }
