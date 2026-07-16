@@ -34,13 +34,23 @@ public class SkillsController {
 //        return "skills";
 //    }
 
+//    @GetMapping
+//    // En RequestParam se puede agregar un valor por defecto
+//    public  String showSkills(@RequestParam(defaultValue = "", required = false) String filter, Model model){
+//        List<Skill> skillsFilter = skills.stream()
+//                .filter(skill -> skill.getNombre().toLowerCase().contains(filter.toLowerCase()))
+//                .toList();
+//        model.addAttribute("skills", skillsFilter);
+//        model.addAttribute("filter", filter);
+//        return "skills";
+//    }
+
     @GetMapping
-    // En RequestParam se puede agregar un valor por defecto
     public  String showSkills(@RequestParam(defaultValue = "", required = false) String filter, Model model){
-        List<Skill> skillsFilter = skills.stream()
-                .filter(skill -> skill.getNombre().toLowerCase().contains(filter.toLowerCase()))
-                .toList();
-        model.addAttribute("skills", skillsFilter);
+        List<Skill> skillFilter = skills.stream()
+                        .filter(skill -> skill.getNombre().contains(filter.toLowerCase()))
+                        .toList();
+        model.addAttribute("skills", skillFilter);
         model.addAttribute("filter", filter);
         return "skills";
     }
