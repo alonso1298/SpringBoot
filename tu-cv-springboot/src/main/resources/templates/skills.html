@@ -5,17 +5,16 @@
     <title>Habilidades</title>
 </head>
 <body>
-<!--    <h1>Nuestras Habilidades</h1>-->
-<!--    <p th:if="${skills.isEmpty()}" >No se tienen datos</p>-->
-<!--    <ul th:if="${!skills.isEmpty()}" >-->
-<!--      <li th:each="habilidad : ${skills}" th:text="${habilidad}">Skill</li>-->
-<!--    </ul>-->
-
-    <h1>Nuestras Habilidades 2</h1>
+    <h1>Nuestras Habilidades</h1>
     <p th:if="${skills.isEmpty()}" >No se tienen datos</p>
     <ul th:if="${!skills.isEmpty()}" >
-        <li th:each="habilidad : ${skills}" th:text="${habilidad}">Skill</li>
+      <li th:each="habilidad : ${skills}" th:text="${habilidad}">Skill</li>
     </ul>
-
+    <form action="/skills" method="get">
+        <label th:for="nombre">Buscar</label>
+        <!--name es el nombre del input-->
+        <input type="text" th:value="${filter}" name="filter">
+        <button type="submit">Buscar</button>
+    </form>
 </body>
 </html>
