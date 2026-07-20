@@ -15,25 +15,6 @@ public class SkillsController {
 
     private final List<Skill> skills = new ArrayList<>();
 
-//    @GetMapping
-//    public String habilidades(Model model){
-//        List<String> habilidades = List.of("Java", "Spring", "Angular", "HTML", "JS");
-//        List<String> list = new ArrayList<>();
-//        model.addAttribute("skills", list);
-//        return "skills";
-//    }
-
-//    @GetMapping
-//    public  String showSkills(Model model){
-//        model.addAttribute("skills", skills);
-//        return "skills";
-//    }
-
-//    @GetMapping
-//    public  String showSkills(){
-//        return "skills";
-//    }
-
     @GetMapping
     // En RequestParam se puede agregar un valor por defecto
     public  String showSkills(@RequestParam(defaultValue = "", required = false) String filter, Model model){
@@ -43,6 +24,16 @@ public class SkillsController {
         model.addAttribute("skills", skillsFilter);
         model.addAttribute("filter", filter);
         return "skills";
+    }
+
+    @GetMapping("/{index}")
+    public String showSkillDetail(@PathVariable int index, Model model){
+        if (index>=0 && index < skills.size()){
+            Skill skill = skills.get(index);
+            model.addAttribute("skill", skill);
+            return "skill-detail";
+        }
+        return "redirect:/skills";
     }
 
     @ModelAttribute(name = "skills2")

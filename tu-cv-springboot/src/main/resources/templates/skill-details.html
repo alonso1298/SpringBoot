@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Habilidades</title>
+</head>
+<body>
+    <h1>Detalle de habilidad</h1>
+    <!--Con @ indicamos las rutas-->
+    <form th:action="@{/skills/add}" th:object="${skill}" method="post">
+
+    </form>
+</body>
+</html>
