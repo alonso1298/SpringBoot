@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Skill {
     private String nombre;
-
+    private String nivel;
 }
