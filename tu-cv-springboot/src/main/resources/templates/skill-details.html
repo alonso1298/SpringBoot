@@ -6,9 +6,12 @@
 </head>
 <body>
     <h1>Detalle de habilidad</h1>
-    <!--Con @ indicamos las rutas-->
     <form th:action="@{/skills/add}" th:object="${skill}" method="post">
-
+        <p>
+            <strong>Nombre: </strong>
+            <span th:text="${skill.nombre}">Nombre</span>
+        </p>
+        <a href="/skills">Volver</a>
     </form>
 </body>
 </html>
