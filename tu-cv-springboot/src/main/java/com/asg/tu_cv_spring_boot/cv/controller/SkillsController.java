@@ -48,6 +48,16 @@ public class SkillsController {
         return "skills";
     }
 
+    @GetMapping("/name/{name}")
+    public String showFilteredSkill(@PathVariable String name, Model model){
+        List<Skill> skillsFilter = skills.stream()
+                .filter(skill -> skill.getNombre().equalsIgnoreCase(name))
+                .toList();
+        model.addAttribute("skills", skillsFilter);
+        model.addAttribute("filterMessage", "filtro" + name);
+        return "skills";
+    }
+
     @ModelAttribute(name = "skills2")
     public List<Skill> getSkill(){
         return skills;
