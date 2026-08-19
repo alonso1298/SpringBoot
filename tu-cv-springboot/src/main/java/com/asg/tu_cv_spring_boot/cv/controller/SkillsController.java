@@ -36,6 +36,18 @@ public class SkillsController {
         return "redirect:/skills";
     }
 
+    @GetMapping("/{nombre}/{nivel}")
+    public String showFiltredSkill(@PathVariable String nombre, @PathVariable String nivel, Model model){
+        List<Skill> skillsFilter = skills.stream()
+                .filter(skill -> skill.getNombre().equalsIgnoreCase(nombre)
+                                    && skill.getNivel().equalsIgnoreCase(nivel)
+                )
+                .toList();
+        model.addAttribute("skills", skillsFilter);
+        model.addAttribute("filterMessage", "Filtro: " + nombre + " - " + nivel);
+        return "skills";
+    }
+
     @ModelAttribute(name = "skills2")
     public List<Skill> getSkill(){
         return skills;
