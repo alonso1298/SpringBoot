@@ -11,6 +11,12 @@
       <li th:each="habilidad, stat : ${skills}">
           <span th:text="'Habilidad: ' + ${habilidad.nombre} + ' Nivel: ' + ${habilidad.nivel}"></span>
           <a href="@{'/skills/id/'+ {stat.index}}">Ver Detalle</a>
+          <span th:href="@'/skills/id/'+ {stat.count}"></span>
+          <span th:href="@'/skills/id/'+ {stat.size}"></span>
+          <span th:href="@'/skills/id/'+ {stat.first}">Primera</span>
+          <span th:href="@'/skills/id/'+ {stat.last}">(Ultima)</span>
+          <span th:href="@'/skills/id/'+ {stat.even}">Par</span>
+          <span th:href="@'/skills/id/'+ {stat.odd}">[Impar]</span>
       </li>
     </ul>
     <form action="/skills" method="get">
