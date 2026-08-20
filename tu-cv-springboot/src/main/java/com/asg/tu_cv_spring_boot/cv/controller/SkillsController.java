@@ -26,7 +26,7 @@ public class SkillsController {
         return "skills";
     }
 
-    @GetMapping("/{index}")
+    @GetMapping("/id/{index}")
     public String showSkillDetail(@PathVariable int index, Model model){
         if (index>=0 && index < skills.size()){
             Skill skill = skills.get(index);
