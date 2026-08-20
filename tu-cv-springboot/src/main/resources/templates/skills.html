@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Habilidades</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
     <ul th:if="${!skills.isEmpty()}" >
       <li th:each="habilidad, stat : ${skills}">
           <span th:text="'Habilidad: ' + ${habilidad.nombre} + ' Nivel: ' + ${habilidad.nivel}"></span>
-          <a th:href="@{'/skills/id/'+ {stat.index}}">Ver Detalle</a>
+          <a th:href="@{'/skills/id/'+ ${stat.index}}">Ver Detalle</a>
           <span th:text="${stat.count}"></span>
           <span th:text="${stat.size}"></span>
           <span th:if="${stat.first}">Primera</span>
