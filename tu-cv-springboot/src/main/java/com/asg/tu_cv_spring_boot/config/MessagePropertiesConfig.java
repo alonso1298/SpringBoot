@@ -1,7 +1,12 @@
 package com.asg.tu_cv_spring_boot.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @Configuration
-public class MessagePropertyConfig {
+@PropertySources({
+        @PropertySource("classpath:message.properties")
+})
+public class MessagePropertiesConfig {
 }

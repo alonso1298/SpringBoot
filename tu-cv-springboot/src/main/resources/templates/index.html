@@ -7,12 +7,13 @@
 <body>
   <h1>Nuestro CV</h1>
     <!--  "name" es la variable definida en controller-->
-    <p th:text="'Hola, ' + ${name} + ' ! ' " >Texto por defecto</p>
-    <p th:if="${name.length < 3}" style="color: red;">Error, el nombre tiene menos de 3 letras</p>
+    <p th:text="'Hola, ' + ${property} + ' ! ' " >Texto por defecto</p>
+    <p th:if="${property.length < 3}" style="color: red;">Error, el nombre tiene menos de 3 letras</p>
 
     <!--  "persona" es el objeto definido en controller-->
     <!--<p th:text="${persona.primerNombre}" >Texto por defecto</p>-->
     <!--<p th:text="${persona.segundoNombre}" >Texto por defecto</p>-->
     <!--<p th:text="${persona.profesion}" >Texto por defecto</p>-->
+    <p th:text="'property: ' + ${property}"></p>
 </body>
 </html>
