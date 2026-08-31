@@ -20,6 +20,7 @@
           <span th:if="${stat.odd}">[Impar]</span>
       </li>
     </ul>
+    <p th:if="${filterMessage}" th:text="${filterMessage}"></p>
     <form action="/skills" method="get">
         <label th:for="nombre">Buscar</label>
         <!--name es el nombre del input-->

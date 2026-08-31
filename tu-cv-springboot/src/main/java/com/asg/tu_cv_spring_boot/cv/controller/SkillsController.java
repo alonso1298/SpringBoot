@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 @RequestMapping("/skills")
@@ -54,8 +53,14 @@ public class SkillsController {
                 .filter(skill -> skill.getNombre().equalsIgnoreCase(name)
                 )
                 .toList();
+        if(skillsFilter.isEmpty()){
+
+            model.addAttribute("filterMessage", "No se encontraron resultados para: " + name);
+
+            return "forward:/skills";
+        }
         model.addAttribute("skills", skillsFilter);
-        model.addAttribute("filterMessage", "Filtro" + name);
+        model.addAttribute("filterMessage", "Filtro: " + name);
         return "skills";
     }
 
