@@ -4,6 +4,7 @@ import com.asg.tu_cv_spring_boot.cv.model.Skill;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,20 +49,20 @@ public class SkillsController {
     }
 
     @GetMapping("/name/{name}")
-    public String showFilteredSkill(@PathVariable String name, Model model){
+    public String showFilteredSkill(@PathVariable String name, RedirectAttributes redirectAttributes){
+
         List<Skill> skillsFilter = skills.stream()
                 .filter(skill -> skill.getNombre().equalsIgnoreCase(name)
                 )
                 .toList();
         if(skillsFilter.isEmpty()){
 
-            model.addAttribute("filterMessage", "No se encontraron resultados para: " + name);
+            redirectAttributes.addFlashAttribute("filterMessage", "No se encontraron resultados para: " + name);
 
-            return "forward:/skills";
+            return "redirect:/skills?filter="+name;
         }
-        model.addAttribute("skills", skillsFilter);
-        model.addAttribute("filterMessage", "Filtro: " + name);
-        return "skills";
+        redirectAttributes.addFlashAttribute("filterMessage", "Filtro: " + name);
+        return "redirect:/skills?filter="+name;
     }
 
     @ModelAttribute(name = "skills2")
